@@ -3,6 +3,7 @@ import "./App.css";
 import Home from "./pages/Home";
 import SignIn from "./pages/SignIn";
 import Profil from "./pages/Profil";
+import Error from "./pages/Error";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import { Provider } from "react-redux";
@@ -18,6 +19,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/sign-in" element={<SignIn />} />
             <Route path="/profile" element={<Profil />} />
+            <Route path="/*" element={<Error />} />
           </Routes>
           <Footer />
         </BrowserRouter>

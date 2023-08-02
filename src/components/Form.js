@@ -13,7 +13,6 @@ const Form = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  // passer par le slice et non par le service
   const handleSubmit = (e) => {
     e.preventDefault();
     const data = { email, password };

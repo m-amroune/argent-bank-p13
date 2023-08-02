@@ -3,6 +3,7 @@ import Logo from "../assets/img/argentBankLogo.png";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserCircle } from "@fortawesome/free-solid-svg-icons";
+import { faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
 import { logout, getUserProfile } from "../redux/userSlice";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -33,7 +34,7 @@ const Navbar = () => {
               onClick={() => dispatch(logout())}
               className="main-nav-item"
             >
-              <FontAwesomeIcon icon={faUserCircle} />
+              <FontAwesomeIcon icon={faSignOutAlt} />
               Sign out
             </Link>
           ) : (
