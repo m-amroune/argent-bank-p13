@@ -33,7 +33,7 @@ const SignIn = () => {
     setPassword(e.target.value);
   };
   return (
-    <div className="container">
+    <>
       <main className="main bg-dark">
         <section className="sign-in-content">
           <FontAwesomeIcon icon={faUserCircle} />
@@ -68,7 +68,7 @@ const SignIn = () => {
           </form>
         </section>
       </main>
-    </div>
+    </>
   );
 };
 

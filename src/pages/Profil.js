@@ -43,39 +43,42 @@ const Profil = () => {
     <>
       <main className="main bg-dark">
         <div className="header">
-          <h1>Welcome back</h1>
           {displayForm ? (
-            <form>
-              <input
-                type="text"
-                onChange={handleFirstNameChange}
-                value={firstName}
-              />
-              <input
-                type="text"
-                onChange={handleLastNameChange}
-                value={lastName}
-              />
-              <div>
-                <button
-                  type="button"
-                  onClick={handleSaveChangeData}
-                  className="edit-button"
-                >
-                  Save
-                </button>
-                <button
-                  type="button"
-                  onClick={handleCancel}
-                  className="edit-button"
-                >
-                  Cancel
-                </button>
-              </div>
-            </form>
+            <>
+              <h1>Welcome back</h1>
+              <form>
+                <input
+                  type="text"
+                  onChange={handleFirstNameChange}
+                  value={firstName}
+                />
+                <input
+                  type="text"
+                  onChange={handleLastNameChange}
+                  value={lastName}
+                />
+                <div>
+                  <button
+                    type="button"
+                    onClick={handleSaveChangeData}
+                    className="edit-button"
+                  >
+                    Save
+                  </button>
+                  <button
+                    type="button"
+                    onClick={handleCancel}
+                    className="edit-button"
+                  >
+                    Cancel
+                  </button>
+                </div>
+              </form>
+            </>
           ) : (
             <div>
               <h1>
+                Welcome back <br />
                 {userInfo && userInfo.firstName} {userInfo && userInfo.lastName}
               </h1>
               <button

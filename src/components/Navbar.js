@@ -29,9 +29,9 @@ const Navbar = () => {
         </Link>
         <div>
           {userInfo ? (
-            <div>
-              <Link className="header-name" to="/profile">
-                <FontAwesomeIcon icon={faUserCircle} />
+            <div className="navbar-sign-out">
+              <Link className="header-name " to="/profile">
+                <FontAwesomeIcon className="icon-sign" icon={faUserCircle} />
                 {userInfo.firstName}
               </Link>
               <Link

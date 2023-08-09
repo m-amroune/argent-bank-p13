@@ -6,20 +6,15 @@ html {
   color: #2c3e50;
 }
 
-body {
-  margin: 0;
+.App {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-}
-
-.container {
-  display: flex;
+  margin: 0;
 }
 
 .main {
   flex: 1;
-  min-height: 614px;
 }
 
 .bg-dark {
@@ -76,10 +71,14 @@ body {
 }
 
 .header-name {
-  margin-right: 0.5rem;
+  margin-right: 0.8rem;
   text-decoration: none;
 }
 
+.icon-sign {
+  margin-right: 0.3rem;
+  font-size: 1.1rem;
+}
 .hero {
   background-image: url("./assets/img/bank-tree.jpeg");
   background-position: 0 -50px;
