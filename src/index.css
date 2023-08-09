@@ -75,6 +75,11 @@ body {
   width: 200px;
 }
 
+.header-name {
+  margin-right: 0.5rem;
+  text-decoration: none;
+}
+
 .hero {
   background-image: url("./assets/img/bank-tree.jpeg");
   background-position: 0 -50px;

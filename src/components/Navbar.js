@@ -17,7 +17,7 @@ const Navbar = () => {
     }
   }, [userToken, dispatch]);
   return (
-    <div>
+    <>
       <nav className="main-nav">
         <Link to="/" className="main-nav-logo">
           <img
@@ -29,14 +29,20 @@ const Navbar = () => {
         </Link>
         <div>
           {userInfo ? (
-            <Link
-              to="/"
-              onClick={() => dispatch(logout())}
-              className="main-nav-item"
-            >
-              <FontAwesomeIcon icon={faSignOutAlt} />
-              Sign out
-            </Link>
+            <div>
+              <Link className="header-name" to="/profile">
+                <FontAwesomeIcon icon={faUserCircle} />
+                {userInfo.firstName}
+              </Link>
+              <Link
+                to="/"
+                onClick={() => dispatch(logout())}
+                className="main-nav-item"
+              >
+                <FontAwesomeIcon icon={faSignOutAlt} />
+                Sign out
+              </Link>
+            </div>
           ) : (
             <Link to="/sign-in" className="main-nav-item">
               <FontAwesomeIcon icon={faUserCircle} />
@@ -45,7 +51,7 @@ const Navbar = () => {
           )}
         </div>
       </nav>
-    </div>
+    </>
   );
 };
 

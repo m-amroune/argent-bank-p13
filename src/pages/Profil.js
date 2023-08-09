@@ -40,7 +40,7 @@ const Profil = () => {
   };
 
   return (
-    <div>
+    <>
       <main className="main bg-dark">
         <div className="header">
           <h1>Welcome back</h1>
@@ -90,7 +90,7 @@ const Profil = () => {
         </div>
         <Accounts />
       </main>
-    </div>
+    </>
   );
 };
 
