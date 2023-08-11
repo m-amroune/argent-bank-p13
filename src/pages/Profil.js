@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserProfile, userUpdate } from "../redux/userSlice";
-
 import Accounts from "../components/Accounts";
 
 const Profil = () => {

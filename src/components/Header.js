@@ -7,7 +7,7 @@ import { faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
 import { logout, getUserProfile } from "../redux/userSlice";
 import { useDispatch, useSelector } from "react-redux";
 
-const Navbar = () => {
+const Header = () => {
   const { userInfo, userToken } = useSelector((state) => state.user);
   const dispatch = useDispatch();
 
@@ -55,4 +55,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default Header;
