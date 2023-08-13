@@ -14,8 +14,6 @@ const Profil = () => {
     setFirstName(e.target.value);
   };
 
-  console.log(userInfo);
-
   const handleLastNameChange = (e) => {
     setLastName(e.target.value);
   };
