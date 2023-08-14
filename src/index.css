@@ -70,6 +70,12 @@ html {
   width: 200px;
 }
 
+@media (max-width: 480px) {
+  .main-nav-logo-image {
+    width: 150px;
+  }
+}
+
 .header-name {
   margin-right: 0.8rem;
   text-decoration: none;

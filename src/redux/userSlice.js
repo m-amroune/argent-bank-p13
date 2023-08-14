@@ -2,6 +2,8 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { baseUrl } from "../services/api";
 import axios from "axios";
 
+// Bank Argent API documentation :  http://localhost:3001/api-docs/
+
 export const userLogin = createAsyncThunk(
   "user/login",
   async ({ email, password }, { rejectWithValue }) => {
@@ -117,7 +119,7 @@ const userSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    builder
+    builder // Login
       .addCase(userLogin.pending, (state) => {
         state.loading = true;
         state.error = null;
@@ -130,7 +132,7 @@ const userSlice = createSlice({
       .addCase(userLogin.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload;
-      })
+      }) // Profile details
       .addCase(getUserProfile.pending, (state) => {
         state.loading = true;
       })
@@ -140,7 +142,7 @@ const userSlice = createSlice({
       })
       .addCase(getUserProfile.rejected, (state) => {
         state.loading = false;
-      })
+      }) // Update profile
       .addCase(userUpdate.pending, (state) => {
         state.loading = true;
       })

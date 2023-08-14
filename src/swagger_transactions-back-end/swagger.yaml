@@ -11,12 +11,12 @@ schemes:
 paths:
   /user/profile/accounts/{accountId}/transactions:
     get:
+      security:
+        - Bearer: []
       tags:
         - Transactions Module
       summary: User Transactions API
       description: API for all user transactions
-      consumes:
-          - application/json
       produces:
            - application/json
       parameters:
@@ -32,7 +32,7 @@ paths:
           description: id of the account to get
       responses:
         '200':
-          description: Api for all user transactions
+          description: List transactions successfully
           schema:
             items:
               $ref: '#/definitions/TransactionsList'
@@ -40,14 +40,15 @@ paths:
           description: Invalid Fields
         '500':
           description: Internal Server Error
+          
   /user/profile/accounts/{accountId}/transactions/{transactionId}:
     get:
+      security:
+        - Bearer: []
       tags:
         - Transactions Module
       summary: User Transaction API
       description: Api for one user transaction
-      consumes:
-          - application/json
       produces:
           - application/json
       parameters:
@@ -68,7 +69,7 @@ paths:
           description: id of the transaction to get
       responses:
         '200':
-          description: Signup Successfully
+          description: Details transaction Successfully
           schema:
             $ref: '#/definitions/Transaction'
         '400':
@@ -76,10 +77,14 @@ paths:
         '500':
           description: Internal Server Error
     put:
+      security:
+        - Bearer: []
       tags:
         - Transactions Module
       summary: User Transaction API
       description: API for transaction
+      produces:
+        - application/json
       parameters:
         - in: header
           name: Authorization
@@ -102,11 +107,9 @@ paths:
           required: true
           schema:
             $ref: '#/definitions/Transaction'
-      produces:
-        - application/json
       responses:
         '200':
-          description: Transaction successully
+          description: Transaction update successully
           schema:
             $ref: '#/definitions/TransactionsList'
         '400':
@@ -114,10 +117,14 @@ paths:
         '500':
           description: Internal Server Error
     delete:
+      security:
+        - Bearer: []
       tags:
         - Transactions Module
       summary: User Transaction API
       description: API for transaction
+      produces:
+        - application/json
       parameters:
         - in: header
           name: Authorization
@@ -128,14 +135,12 @@ paths:
           name: accountId
           type: integer
           required: true
-          description: id of the account to get
+          description: id of the account to delete
         - in: path
           name: transactionId
           type: integer
           required: true
           description: id of the transaction to delete
-      produces:
-        - application/json
       responses:
         '200':
           description: Transaction deleted successully
@@ -143,16 +148,19 @@ paths:
           description: Invalid Fields
         '500':
           description: Internal Server Error
-           
+securityDefinitions:
+  Bearer:
+    type: apiKey
+    name: Authorization
+    in: header           
 definitions:
   TransactionsList:
     type: object
     properties:
-      idAccount:
+      accountId:
         type: number
-      idTransaction:
+      transactionId:
         type: number
-     
       date:
         type: string
       description:
@@ -164,9 +172,9 @@ definitions:
   Transaction:
     type: object
     properties:
-      idTransaction:
+      transactionId:
         type: number
-      idAccount:
+      accountId:
         type: number
       Type:
         type: string
