@@ -3,11 +3,13 @@ import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserCircle } from "@fortawesome/free-solid-svg-icons";
 import { useDispatch, useSelector } from "react-redux";
-import { userLogin } from "../redux/userSlice";
+import { userLogin } from "../redux/Services";
 
 const SignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const rememberEmail = localStorage.getItem("email");
+  const [rememberMe, setRememberMe] = useState(Boolean(rememberEmail));
   const { userInfo } = useSelector((state) => state.user);
 
   const dispatch = useDispatch();
@@ -17,13 +19,21 @@ const SignIn = () => {
     e.preventDefault();
     const data = { email, password };
     dispatch(userLogin(data));
+
+    if (rememberMe) {
+      localStorage.setItem("email", email);
+    } else {
+      localStorage.removeItem("email");
+    }
   };
 
   useEffect(() => {
+    setEmail(rememberEmail || "");
+    setRememberMe(Boolean(rememberEmail));
     if (userInfo) {
       navigate("/profile");
     }
-  }, [navigate, userInfo]);
+  }, [navigate, userInfo, rememberEmail]);
 
   const handleEmail = (e) => {
     setEmail(e.target.value);
@@ -58,7 +68,12 @@ const SignIn = () => {
               />
             </div>
             <div className="input-remember">
-              <input type="checkbox" id="remember-me" />
+              <input
+                onChange={(e) => setRememberMe(e.target.checked)}
+                type="checkbox"
+                id="remember-me"
+                checked={rememberMe}
+              />
               <label htmlFor="remember-me">Remember me</label>
             </div>
 

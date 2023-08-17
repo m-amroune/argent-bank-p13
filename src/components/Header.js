@@ -4,7 +4,8 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserCircle } from "@fortawesome/free-solid-svg-icons";
 import { faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
-import { logout, getUserProfile } from "../redux/userSlice";
+import { getUserProfile } from "../redux/Services";
+import { logout } from "../redux/userSlice";
 import { useDispatch, useSelector } from "react-redux";
 
 const Header = () => {
